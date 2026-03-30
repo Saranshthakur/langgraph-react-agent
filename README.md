@@ -47,13 +47,3 @@ The agent can:
 5. LLM refines the response
 6. Final answer is returned to the user
 
-## Repository Structure
-
-```bash
-langgraph-react-style-agent/
-├── app.py
-├── requirements.txt
-├── .env.example
-├── .gitignore
-├── README.md
-└── screenshots/
