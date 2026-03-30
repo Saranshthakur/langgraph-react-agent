@@ -1,49 +1,53 @@
-# LangGraph ReAct-Style Multi-Tool LLM Agent
+# ReAct-style LangGraph Agent
 
-Built a ReAct-style LLM agent using LangGraph and ChatGroq with dynamic tool calling across Arxiv, Wikipedia, and Tavily for real-time knowledge retrieval and response refinement.
+A tool-augmented LLM agent built using LangGraph, LangChain, and ChatGroq.  
+This project implements a ReAct-style reasoning loop where the model can dynamically decide when to call external tools and when to respond directly.
+
+---
 
 ## Overview
 
-This project implements a tool-augmented AI agent that follows a ReAct-style reasoning loop:
+This project builds a **stateful, tool-calling AI agent** that can:
 
-LLM → Tool → LLM → Final Response
+- Answer user queries
+- Decide when external data is needed
+- Call tools like Arxiv, Wikipedia, and Tavily
+- Use tool results to improve responses
+- Maintain conversation context across multiple turns
 
-The agent can:
-- Decide when to answer directly
-- Decide when to call external tools
-- Retrieve information from academic, encyclopedic, and web sources
-- Loop through tool results to improve final responses
-- Persist conversation state with memory checkpointing
+The system follows a **ReAct-style reasoning pattern**:
+
+LLM → Tool → LLM → Final Answer
+
+---
 
 ## Features
 
-- ReAct-style agent workflow using LangGraph
-- Dynamic tool calling with LangChain tools
-- External knowledge retrieval from:
-  - Arxiv
-  - Wikipedia
-  - Tavily Search
-- Graph-based orchestration with conditional routing
-- Stateful conversation flow
-- Memory checkpointing for multi-turn interactions
+- ReAct-style agent workflow (Reason + Act)
+- Dynamic tool selection using LLM decision-making
+- Integration with:
+  - Arxiv (research papers)
+  - Wikipedia (general knowledge)
+  - Tavily (web search)
+- Conditional execution using LangGraph
+- Multi-turn conversation with memory (MemorySaver)
 - Modular and extensible architecture
+
+---
 
 ## Tech Stack
 
-- Python
+### AI / LLM Engineering
 - LangGraph
 - LangChain
-- ChatGroq
-- Arxiv API Wrapper
-- Wikipedia API Wrapper
+- ChatGroq (Qwen-32B)
+- Tool Calling / Function Calling
+- ReAct-style Agentic Workflow
+
+### Data & Integration
+- Arxiv API
+- Wikipedia API
 - Tavily Search API
 
-## Project Architecture
-
-1. User sends a query
-2. LLM evaluates whether tool usage is needed
-3. If needed, the appropriate tool is called
-4. Tool results are passed back to the LLM
-5. LLM refines the response
-6. Final answer is returned to the user
-
+### Programming
+- Python
